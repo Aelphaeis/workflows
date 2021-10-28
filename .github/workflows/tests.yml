@@ -14,6 +14,11 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Resolve Dependencies, Plugins & Reports
-        run: mvn dependency:go-offline dependency:get -Dartifact=org.apache.maven.plugins:maven-surefire-plugin:2.12.4 
+        run: |
+          mvn 
+          dependency:go-offline 
+          dependency:get 
+            -Dartifact=org.apache.maven.plugins:maven-surefire-plugin:2.12.4 
+            -Dartifact=org.apache.maven.plugins:maven-resources-plugin:2.6
       - name: test with maven
         run: mvn --batch-mode test
