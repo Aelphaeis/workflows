@@ -15,8 +15,7 @@ jobs:
           distribution: 'temurin'
       - name: Resolve Dependencies, Plugins & Reports
         run: |
-          mvn dependency:go-offline 
+          mvn process-test-classes
           mvn dependency:get -Dartifact=org.apache.maven.plugins:maven-surefire-plugin:2.12.4 
-          mvn dependency:get -Dartifact=org.apache.maven.plugins:maven-resources-plugin:2.6
       - name: Test with maven
         run: mvn --batch-mode test
