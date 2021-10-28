@@ -1,0 +1,17 @@
+
+name: Java Tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: test on JDK 11
+        uses: actions/setup-java@2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: test with maven
+        run: mvn test
