@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: compile
-        run: mvn --batch-mode process-test-classes
+      - name: Resolve plugins
+        run: mvn dependency:resolve-plugins
       - name: test with maven
         run: mvn --batch-mode test
