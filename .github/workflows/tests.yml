@@ -14,6 +14,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Resolve plugins
-        run: mvn dependency:resolve-plugins
+        run: mvn dependency:go-offline
       - name: test with maven
         run: mvn --batch-mode test
