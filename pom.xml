@@ -12,9 +12,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13.1</version>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.8.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -34,30 +34,20 @@
 					<target>11</target>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.6.4</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.pitest</groupId>
+						<artifactId>pitest-junit5-plugin</artifactId>
+						<version>0.8</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
-		<extensions>
-			<extension>
-				<!-- see https://github.com/spring-projects/aws-maven -->
-				<!-- Necessary to push maven projects to s3 -->
-				<groupId>org.springframework.build</groupId>
-				<artifactId>aws-maven</artifactId>
-				<version>5.0.0.RELEASE</version>
-			</extension>
-		</extensions>
 	</build>
-
-	<distributionManagement>
-		<repository>
-			<id>s3-maven-release-repo</id>
-			<name>aws release repository</name>
-			<url>s3://repo.maven/release</url>
-		</repository>
-		<snapshotRepository>
-			<id>s3-maven-snapshot-repo</id>
-			<name>aws snapshot repository</name>
-			<url>s3://repo.maven/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 	<contributors>
 		<contributor>

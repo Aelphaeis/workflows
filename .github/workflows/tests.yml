@@ -3,7 +3,7 @@ name: Java Tests
 on: [push]
 
 jobs:
-  build:
+  Unit-Tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,3 +18,17 @@ jobs:
           mvn dependency:get -Dartifact=org.apache.maven.plugins:maven-surefire-plugin:2.12.4 
       - name: Test with maven
         run: mvn --batch-mode test
+  Coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Coverage of Unit Tests
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+      - name: Resolve Dependencies, Plugins & Reports
+        run: |
+          mvn 
+      - name: Test with maven
+        run: mvn --batch-mode org.pitest:pitest-maven:mutationCoverage -e
