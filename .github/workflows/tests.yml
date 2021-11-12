@@ -29,4 +29,6 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
       - name: Test with maven
+        run: mvn verify
+      - name: Test with maven
         run: mvn --batch-mode org.pitest:pitest-maven:mutationCoverage -e
