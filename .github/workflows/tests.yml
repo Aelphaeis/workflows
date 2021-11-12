@@ -18,6 +18,7 @@ jobs:
           mvn dependency:get -Dartifact=org.apache.maven.plugins:maven-surefire-plugin:2.12.4 
       - name: Test with maven
         run: mvn --batch-mode test
+
   Coverage:
     runs-on: ubuntu-latest
     steps:
@@ -31,4 +32,4 @@ jobs:
         run: |
           mvn 
       - name: Test with maven
-        run: mvn --batch-mode org.pitest:pitest-maven:mutationCoverage -e
+        run: mvn org.pitest:pitest-maven:mutationCoverage
